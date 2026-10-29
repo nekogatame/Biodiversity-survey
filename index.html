@@ -95,6 +95,74 @@ footer{
 A Field Guide to Creatures Found on a Farm in Nago City, Okinawa, Japan
 </B></p>
 </header>
+<h2>図鑑内検索</h2>
+
+<input type="text"
+       id="searchBox"
+       placeholder="生物名を入力">
+
+<button onclick="searchSpecies()">
+検索
+</button>
+
+<div id="result"></div>
+
+<script>
+
+const species = [
+
+{
+name:"ジャコウアゲハ",
+url:"jakouageha.html"
+},
+
+{
+name:"ナミエシロチョウ",
+url:"namieshiroityou.html"
+},
+
+{
+name:"オオミノガ",
+url:"oominoga.html"
+},
+
+{
+name:"チャミノガ",
+url:"tyaminoga.html"
+}
+
+];
+
+function searchSpecies(){
+
+let keyword =
+document.getElementById("searchBox").value;
+
+let result =
+document.getElementById("result");
+
+let html="";
+
+species.forEach(sp=>{
+
+if(sp.name.includes(keyword)){
+
+html +=
+`<p>
+<a href="${sp.url}">
+${sp.name}
+</a>
+</p>`;
+
+}
+
+});
+
+result.innerHTML = html;
+
+}
+
+</script>
     <HR>
 
 <h2 class="section-title">動物 Animalia</h2>
